@@ -156,10 +156,11 @@ class Page {
     // Attempt to get geopdf coordinates
     const { catalog, linearization } = this;
     let obj = this._getInheritableProperty("VP");
-    if (obj[0] != undefined){
-      if (obj[0]["_map"] != undefined){
-        if (obj[0]._map.Measure != undefined){
-          return shadow(
+    if (obj != undefined){
+      if (obj[0] != undefined){
+        if (obj[0]["_map"] != undefined){
+          if (obj[0]._map.Measure != undefined){
+            return shadow(
               this,
               "measure",
               this.xref
@@ -171,6 +172,7 @@ class Page {
                   return "None";
                 })
             );
+          }
         }
       }
     }
