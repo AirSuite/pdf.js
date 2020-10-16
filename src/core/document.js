@@ -156,7 +156,7 @@ class Page {
     // Attempt to get geopdf coordinates
     let obj = this._getInheritableProperty("VP");
     console.log(obj);
-    var measure = null;
+    var measure = "";
     if (obj[0] != undefined){
       console.log(obj[0]);
       if (obj[0]["_map"] != undefined){
