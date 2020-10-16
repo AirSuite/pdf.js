@@ -173,12 +173,17 @@ class Page {
                 })
                 .catch(reason => {
                   console.log(measure);
-                  return "No Measure Data";
+                  return "None";
                 })
             );
         }
       }
     }
+    return shadow(
+      this,
+      "measure",
+      measure
+    );
   }
   get cropBox() {
     // Reset invalid crop box to media box.
