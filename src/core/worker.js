@@ -437,7 +437,7 @@ class WorkerMessageHandler {
             ref,
             userUnit,
             view,
-            measure,
+            measureData,
           };
         });
       });
