@@ -157,7 +157,7 @@ class Page {
     return shadow(
       this,
       "LGIDict",
-      this._getInheritableProperty("LGIDict") || null
+      this._getInheritableProperty("LGIDict") || Dict.empty
     );
   }
 
