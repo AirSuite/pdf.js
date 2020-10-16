@@ -154,21 +154,33 @@ class Page {
   
   get measure() {
     // Attempt to get geopdf coordinates
+    const { catalog, linearization } = this;
     let obj = this._getInheritableProperty("VP");
     var measure = "";
     if (obj[0] != undefined){
       if (obj[0]["_map"] != undefined){
         if (obj[0]._map.Measure != undefined){
           measure = obj[0]._map.Measure;
+          return this.xref
+          .fetchAsync(measure)
+          .then(obj => {
+              return shadow(
+                this,
+                "measure",
+                obj
+              );
+          })
+          .catch(reason => {
+            info(reason);
+            return shadow(
+              this,
+              "measure",
+              measure
+            );
+          });
         }
       }
     }
-    console.log(measure);
-    return shadow(
-      this,
-      "measure",
-      measure
-    );
   }
   get cropBox() {
     // Reset invalid crop box to media box.
