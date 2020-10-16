@@ -151,6 +151,15 @@ class Page {
       this._getBoundingBox("MediaBox") || LETTER_SIZE_MEDIABOX
     );
   }
+  
+  get LGIDict() {
+    // Reset invalid media box to letter size.
+    return shadow(
+      this,
+      "LGIDict",
+      this._getInheritableProperty("LGIDict") || null
+    );
+  }
 
   get cropBox() {
     // Reset invalid crop box to media box.
