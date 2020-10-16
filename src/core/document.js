@@ -164,10 +164,11 @@ class Page {
           return this.xref
           .fetchAsync(measure)
           .then(obj => {
+            measure = obj._map;
               return shadow(
                 this,
                 "measure",
-                obj
+                measure
               );
           })
           .catch(reason => {
