@@ -156,7 +156,7 @@ class Page {
     // Attempt to get geopdf coordinates
     const { catalog, linearization } = this;
     let obj = this._getInheritableProperty("VP");
-    var measure = "";
+    var measure = "None";
     if (obj[0] != undefined){
       if (obj[0]["_map"] != undefined){
         if (obj[0]._map.Measure != undefined){
@@ -165,6 +165,7 @@ class Page {
           .fetchAsync(measure)
           .then(obj => {
             measure = obj._map;
+            console.log(measure);
               return shadow(
                 this,
                 "measure",
@@ -172,7 +173,7 @@ class Page {
               );
           })
           .catch(reason => {
-            info(reason);
+            console.log(measure);
             return shadow(
               this,
               "measure",
