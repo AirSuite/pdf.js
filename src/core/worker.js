@@ -428,14 +428,16 @@ class WorkerMessageHandler {
           pdfManager.ensure(page, "ref"),
           pdfManager.ensure(page, "userUnit"),
           pdfManager.ensure(page, "view"),
-          pdfManager.ensure(page, "LGIDict"),
-        ]).then(function ([rotate, ref, userUnit, view, LGIDict]) {
+          pdfManager.ensure(page, "gpts"),
+          pdfManager.ensure(page, "gcs"),
+        ]).then(function ([rotate, ref, userUnit, view, gpts, gcs]) {
           return {
             rotate,
             ref,
             userUnit,
             view,
-            LGIDict,
+            gpts,
+            gcs,
           };
         });
       });
