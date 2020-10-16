@@ -1035,6 +1035,14 @@ class PDFPageProxy {
   get ref() {
     return this._pageInfo.ref;
   }
+  
+  /**
+   * @type {Object} The reference that points to this page. It has `?` and
+   *   `?` properties.
+   */
+  get LGIDict() {
+    return this._pageInfo.LGIDict;
+  }
 
   /**
    * @type {number} The default size of units in 1/72nds of an inch.
