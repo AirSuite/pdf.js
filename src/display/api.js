@@ -1040,16 +1040,8 @@ class PDFPageProxy {
    * @type {Array} The ground control points to georeference the page to a map. It has `8` items
    *   coordinates [SE.Lat, SE.Long, NE.Lat, NE.Long, NW.Lat, NW.Long, SW.Lat, SW.Long].
    */
-  get gpts() {
-    return this._pageInfo.gpts;
-  }
-  
-  /**
-   * @type {Object} The coordinate system used for to georeference the page to a map. It has `Type`and
-   *   'WKT' properties.
-   */
-  get gcs() {
-    return this._pageInfo.gcs;
+  get measure() {
+    return this._pageInfo.measure;
   }
 
   /**
