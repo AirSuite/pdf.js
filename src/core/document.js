@@ -161,8 +161,8 @@ class Page {
       console.log(obj[0]);
       if (obj[0]["_map"] != undefined){
         console.log(obj[0]._map);
-        if (obj[0]["_map"]["Measure"] != undefined){
-          measure = obj[0].Measure;
+        if (obj[0]._map.Measure != undefined){
+          measure = obj[0]._map.Measure;
         }
       }
     }
