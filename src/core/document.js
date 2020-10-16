@@ -153,11 +153,15 @@ class Page {
   }
   
   get LGIDict() {
-    // Reset invalid media box to letter size.
+    // Attempt to get geopdf coordinates
+    console.log(this._getBoundingBox("LGIDict"));
+    console.log(this.pageDict.get("LGIDict"));
+    let obj = this._getInheritableProperty("LGIDict");
+    console.log(obj);
     return shadow(
       this,
       "LGIDict",
-      this._getInheritableProperty("LGIDict") || Dict.empty
+      "test"
     );
   }
 
