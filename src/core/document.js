@@ -152,42 +152,22 @@ class Page {
     );
   }
   
-  get gpts() {
+  get measure() {
     // Attempt to get geopdf coordinates
     let obj = this._getInheritableProperty("VP");
-    var gpts = Dict.empty;
+    console.log(obj);
+    var measure = Dict.empty;
     if (obj[0] != undefined){
-      if (obj[0]["Measure"] != undefined){
-       if (obj[0]["Measure"]["GPTS"] != undefined){
-        gpts = obj[0]["Measure"]["GPTS"];
-       }
+      if (obj[0]["_map"]["Measure"] != undefined){
+        measure = obj[0].Measure;
       }
     }
     return shadow(
       this,
-      "gpts",
-      gpts
+      "measure",
+      measure
     );
   }
-  
-  get gcs() {
-    // Attempt to get geopdf coordinates
-    let obj = this._getInheritableProperty("VP");
-    var gcs = Dict.empty;
-    if (obj[0] != undefined){
-      if (obj[0]["Measure"] != undefined){
-       if (obj[0]["Measure"]["GCS"] != undefined){
-        gcs = obj[0]["Measure"]["GCS"];
-       }
-      }
-    }
-    return shadow(
-      this,
-      "gcs",
-      gcs
-    );
-  }
-
   get cropBox() {
     // Reset invalid crop box to media box.
     return shadow(
