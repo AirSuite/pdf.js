@@ -430,6 +430,8 @@ class WorkerMessageHandler {
           pdfManager.ensure(page, "view"),
           pdfManager.ensure(page, "measure"),
         ]).then(function ([rotate, ref, userUnit, view, gpts, measure]) {
+          const pageRef = Ref.get(measure.num, measure.gen);
+          let measureData = pdfManager.ensureCatalog("getPageIndex", [pageRef]);
           return {
             rotate,
             ref,
