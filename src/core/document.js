@@ -154,9 +154,9 @@ class Page {
   
   get LGIDict() {
     // Attempt to get geopdf coordinates
-    console.log(this._getBoundingBox("Measure"));
-    console.log(this.pageDict.get("Measure"));
-    let obj = this._getInheritableProperty("Measure");
+    console.log(this._getBoundingBox("VP"));
+    console.log(this.pageDict.get("VP"));
+    let obj = this._getInheritableProperty("VP");
     console.log(obj);
     return shadow(
       this,
