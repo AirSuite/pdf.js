@@ -151,28 +151,23 @@ class Page {
       this._getBoundingBox("MediaBox") || LETTER_SIZE_MEDIABOX
     );
   }
-  
+
   get measure() {
     // Attempt to get geopdf coordinates
     const { catalog, linearization } = this;
     let obj = this._getInheritableProperty("VP");
-    var measure = "None";
     if (obj[0] != undefined){
       if (obj[0]["_map"] != undefined){
         if (obj[0]._map.Measure != undefined){
-          measure = obj[0]._map.Measure;
           return shadow(
               this,
               "measure",
               this.xref
-                .fetchAsync(measure)
+                .fetchAsync(obj[0]._map.Measure)
                 .then(obj => {
-                  measure = obj._map.GPTS;
-                  console.log(measure);
-                    return measure;
+                  return obj._map.GPTS;
                 })
                 .catch(reason => {
-                  console.log(measure);
                   return "None";
                 })
             );
@@ -182,7 +177,7 @@ class Page {
     return shadow(
       this,
       "measure",
-      measure
+      "None"
     );
   }
   get cropBox() {

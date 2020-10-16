@@ -429,7 +429,7 @@ class WorkerMessageHandler {
           pdfManager.ensure(page, "userUnit"),
           pdfManager.ensure(page, "view"),
           pdfManager.ensure(page, "measure"),
-        ]).then(function ([rotate, ref, userUnit, view, gpts, measure]) {
+        ]).then(function ([rotate, ref, userUnit, view, measure]) {
           return {
             rotate,
             ref,
