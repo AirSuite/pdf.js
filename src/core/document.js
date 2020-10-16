@@ -156,10 +156,12 @@ class Page {
     // Attempt to get geopdf coordinates
     let obj = this._getInheritableProperty("VP");
     console.log(obj);
-    var measure = Dict.empty;
+    var measure = null;
     if (obj[0] != undefined){
-      if (obj[0]["_map"]["Measure"] != undefined){
-        measure = obj[0].Measure;
+      if (obj[0]["_map"] != undefined){
+        if (obj[0]["_map"]["Measure"] != undefined){
+          measure = obj[0].Measure;
+        }
       }
     }
     return shadow(
