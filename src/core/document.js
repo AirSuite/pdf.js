@@ -152,16 +152,39 @@ class Page {
     );
   }
   
-  get LGIDict() {
+  get gpts() {
     // Attempt to get geopdf coordinates
-    console.log(this._getBoundingBox("VP"));
-    console.log(this.pageDict.get("VP"));
     let obj = this._getInheritableProperty("VP");
-    console.log(obj);
+    var gpts = Dict.empty;
+    if (obj[0] != undefined){
+      if (obj[0]["Measure"] != undefined){
+       if (obj[0]["Measure"]["GPTS"] != undefined){
+        gpts = obj[0]["Measure"]["GPTS"];
+       }
+      }
+    }
     return shadow(
       this,
-      "LGIDict",
-      obj
+      "gpts",
+      gpts
+    );
+  }
+  
+  get gcs() {
+    // Attempt to get geopdf coordinates
+    let obj = this._getInheritableProperty("VP");
+    var gcs = Dict.empty;
+    if (obj[0] != undefined){
+      if (obj[0]["Measure"] != undefined){
+       if (obj[0]["Measure"]["GCS"] != undefined){
+        gcs = obj[0]["Measure"]["GCS"];
+       }
+      }
+    }
+    return shadow(
+      this,
+      "gcs",
+      gcs
     );
   }
 
