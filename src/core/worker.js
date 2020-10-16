@@ -435,7 +435,7 @@ class WorkerMessageHandler {
             ref,
             userUnit,
             view,
-            measure,
+            pdfManager.ensureCatalog("getPageIndex", [measure]),
           };
         });
       });
