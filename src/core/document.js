@@ -161,9 +161,12 @@ class Page {
         console.log(obj[0]._map);
         if (obj[0]._map.Measure != undefined){
           measure = obj[0]._map.Measure;
+          const pageRef = Ref.get(measure.num, measure.gen);
+          measure = pdfManager.ensureCatalog("getPageIndex", [pageRef]);
         }
       }
     }
+    console.log(measure);
     return shadow(
       this,
       "measure",
