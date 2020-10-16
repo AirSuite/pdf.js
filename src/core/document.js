@@ -161,26 +161,21 @@ class Page {
       if (obj[0]["_map"] != undefined){
         if (obj[0]._map.Measure != undefined){
           measure = obj[0]._map.Measure;
-          
-          return this.xref
-          .fetchAsync(measure)
-          .then(obj => {
-            measure = obj._map.GPTS;
-            console.log(measure);
-              return shadow(
-                this,
-                "measure",
-                measure
-              );
-          })
-          .catch(reason => {
-            console.log(measure);
-            return shadow(
+          return shadow(
               this,
               "measure",
-              measure
+              this.xref
+                .fetchAsync(measure)
+                .then(obj => {
+                  measure = obj._map.GPTS;
+                  console.log(measure);
+                    return measure;
+                })
+                .catch(reason => {
+                  console.log(measure);
+                  return "No Measure Data";
+                })
             );
-          });
         }
       }
     }
