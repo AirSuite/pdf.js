@@ -435,7 +435,7 @@ class WorkerMessageHandler {
             ref,
             userUnit,
             view,
-            LGIDict
+            LGIDict,
           };
         });
       });
